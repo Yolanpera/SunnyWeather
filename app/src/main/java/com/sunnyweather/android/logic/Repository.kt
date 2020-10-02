@@ -9,7 +9,7 @@ import java.lang.RuntimeException
 
 object Repository {
 
-    fun searchPlaces(query: String) = liveData<Result<List<Place>>>(Dispatchers.IO){
+    fun searchPlaces(query: String) = liveData(Dispatchers.IO){
         val result = try {
             val placeResponse = SunnyWeatherNetwork.searchPlaces(query)
             if (placeResponse.status == "ok") {
